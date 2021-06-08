@@ -1,5 +1,7 @@
-describe Activities do
-  before(each:) do
+require 'activity'
+
+describe Activity do
+  before(:each) do
     @activity = Activity.new("Brunch")
   end
 
@@ -9,7 +11,7 @@ describe Activities do
 
   it 'has attributes' do
     expect(@activity.name).to eq("Brunch")
-    expect(@participants).to eq({})
+    expect(@activity.participants).to eq({})
   end
 
   it 'can add participants' do
