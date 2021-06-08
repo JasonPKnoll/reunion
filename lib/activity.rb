@@ -14,10 +14,20 @@ class Activity
   end
 
   def total_cost
-    all_costs = []
-    @participants.values.map do |cost|
-      cost# require "pry"; binding.pry
+    participants.values.map do |cost|
+      cost
     end.sum
+  end
+
+  def split
+    total_cost / participants.values.count
+  end
+
+  def owed
+    total_split = split
+    participants.each do |name, cost|
+      participants[name] = total_split - cost
+    end
   end
 
   # def total_cost
